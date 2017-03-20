@@ -3,7 +3,6 @@
 // Libs
 let ExtractText = require('extract-text-webpack-plugin');
 let webpack = require('webpack');
-let path = require('path');
 
 // Define settings
 module.exports = {
@@ -24,15 +23,10 @@ module.exports = {
                 })
             },
             
+            // ES6
             {
                 test: /\.js$/,
                 loader: 'babel-loader'
-            },
-
-            // Exclude php
-            {
-                test: /\.php$/,
-                exclude: [/\.php$/]
             }
         ]
     },
