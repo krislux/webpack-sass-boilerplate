@@ -1,23 +1,24 @@
 {
-  "name": "Simple Webpack/Sass Boilerplate",
+  "name": "coop-hugeslider",
   "version": "1.0.0",
   "description": "",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kris Lux <email@amunium.dk>",
-  "license": "MIT",
+  "author": "Kris Lux <kl@republica.dk>",
+  "license": "proprietary",
   "devDependencies": {
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
+    "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.0",
-    "css-loader": "^0.27.3",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.5.0",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.14.1",
-    "webpack": "^2.2.1"
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   },
   "babel": {
     "presets": [

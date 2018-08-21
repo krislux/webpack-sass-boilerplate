@@ -1,51 +1,62 @@
 "use strict";
 
-// Libs
-let ExtractText = require('extract-text-webpack-plugin');
-let webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 // Define settings
 module.exports = {
-    // The main .js file path
-    entry: {
-        'app': './client/js/app.js'
+    mode: "development", // "production" | "development" | "none"
+
+    entry: path.resolve(__dirname, "client/js/app.js"),
+
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "js/app.js"
     },
 
-    // Define loaders
     module: {
-        loaders: [
-            // Sass
-            {
-                test: /\.scss$/,
-                loader: ExtractText.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader?minimize!sass-loader'
-                })
-            },
-            
-            // ES6
-            {
-                test: /\.js$/,
-                loader: 'babel-loader'
+        rules: [{
+            test: /\.js$/,
+            include: [
+                path.resolve(__dirname, "client/js")
+            ],
+            loader: "babel-loader",
+            options: {
+                presets: ["es2015"]
             }
+        }, {
+            test: /\.scss$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                    },
+                },
+                'sass-loader',
+            ]
+        }]
+    },
+
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            }),
+            new OptimizeCSSAssetsPlugin({})
         ]
     },
 
-    // Output .js file
-    output: {
-        filename: 'public/js/[name].js',
-        sourceMapFilename: '[file].map'
-    },
-
-    // plugins
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: false,
-            extractComments: false,
-            sourceMap: true
-        }),
-        new ExtractText('public/css/[name].css')
-    ],
-    
-    devtool: '#cheap-module-source-map'
+        new MiniCssExtractPlugin({
+            filename: 'css/app.css'
+        })
+    ]
 };
