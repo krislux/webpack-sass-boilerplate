@@ -4,7 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch",
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
   },
   "author": "Kris Lux <kl@republica.dk>",
   "license": "proprietary",
