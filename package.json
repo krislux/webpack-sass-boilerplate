@@ -8,8 +8,8 @@
     "dev": "webpack --mode=development",
     "prod": "webpack --mode=production"
   },
-  "author": "Kris Lux <kl@republica.dk>",
-  "license": "proprietary",
+  "author": "Kris Lux <mail@kilolima.dk>",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^7.1.5",
