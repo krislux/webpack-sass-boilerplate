@@ -1,15 +1,15 @@
 {
-  "name": "coop-hugeslider",
+  "name": "webpack-sass-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple boilerplate for compiling Sass and ES6 Javascript with Webpack.",
   "main": "",
   "scripts": {
     "watch": "webpack --watch",
     "dev": "webpack --mode=development",
     "prod": "webpack --mode=production"
   },
-  "author": "Kris Lux <kl@republica.dk>",
-  "license": "proprietary",
+  "author": "Kris Lux <mail@kilolima.dk>",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^7.1.5",
